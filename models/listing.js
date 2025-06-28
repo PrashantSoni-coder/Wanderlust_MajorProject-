@@ -10,10 +10,10 @@ const listingSchema = new Schema({
     description : String,
     image : {
         type:String,
-        default:"https://unsplash.com/photos/a-sandy-beach-with-waves-coming-in-to-shore-bMBLl7Cq14A",
+        default:"https://plus.unsplash.com/premium_photo-1729096977029-287ff661ff19?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         set : (v)=>
             v === "" 
-        ? "https://unsplash.com/photos/a-sandy-beach-with-waves-coming-in-to-shore-bMBLl7Cq14A" 
+        ? "https://plus.unsplash.com/premium_photo-1729096977029-287ff661ff19?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
         : v,    
     },
     price : Number,
