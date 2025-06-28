@@ -12,9 +12,9 @@ const listingSchema = new Schema({
         type:String,
         default:"https://unsplash.com/photos/a-sandy-beach-with-waves-coming-in-to-shore-bMBLl7Cq14A",
         set : (v)=>
-            v === "" ? "https://unsplash.com/photos/a-sandy-beach-with-waves-coming-in-to-shore-bMBLl7Cq14A" : v
-        ,
-        
+            v === "" 
+        ? "https://unsplash.com/photos/a-sandy-beach-with-waves-coming-in-to-shore-bMBLl7Cq14A" 
+        : v,    
     },
     price : Number,
     location : String,
