@@ -49,15 +49,36 @@ app.get("/listings",async (req,res)=>{
     let allListings = await Listing.find()
     res.render("listings/index.ejs",{allListings});
 })
+//New Rout
+
+app.get("/listings/new" , (req,res)=>{
+    res.render("listings/new.ejs");
+})
 
 //show rout
 
 app.get("/listings/:id",async (req,res)=>{
     let {id} = req.params;
-    res.render("listings/show.ejs");
+    let listing = await Listing.findById(id);
+    res.render("listings/show.ejs",{listing});
 })
 
 
+//add new listing
+
+app.post("/listings",async(req,res)=>{
+    let newlisting = new Listing (req.body.listing);
+    await newlisting.save();
+    console.log(newlisting);
+    res.redirect("/listings")
+})
+
+
+
+
+
+
+//listening
 app.listen(8080 ,()=>{
     console.log("app listening at port: 8080")
 })
