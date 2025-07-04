@@ -15,6 +15,8 @@ const wrapAsync = require("./utils/wrapAsync.js");
 
 const ExpressError = require("./utils/ExpressError.js");
 
+const {listingSchema} = require("./schema.js");
+
 app.set("view engine","ejs");
 app.set("views" , path.join(__dirname,"views"));
 app.use(express.urlencoded({extended:true}));
@@ -30,6 +32,16 @@ main().then(()=>{
 
 async function main(){
     await mongoose.connect(mongo_url)
+}
+
+const validateListing = (req,res,next)=>{
+    let {error} = listingSchema.validate(req.body);
+    
+    if(error){
+        throw new ExpressError(400,error);
+    }else{
+        next();
+    }
 }
 
 
@@ -76,11 +88,11 @@ app.get("/listings/:id",wrapAsync(async (req,res)=>{
 
 //add new listing
 
-app.post("/listings",wrapAsync(async(req,res,next)=>{
-    let newlisting = new Listing (req.body.listing);
-    if(!req.body.listing){
-        throw new ExpressError(400,"send valid data for listing.")
-    }
+app.post("/listings",validateListing,wrapAsync(async(req,res,next)=>{
+
+    
+    const newlisting = new Listing (req.body.listing);
+    
     await newlisting.save();
     console.log(newlisting);
     res.redirect("/listings")
@@ -96,11 +108,9 @@ app.get("/listings/:id/edit" , wrapAsync(async (req,res)=>{
 
 //edit in db
 
-app.put("/listings/:id",wrapAsync(async(req,res)=>{
+app.put("/listings/:id",validateListing,wrapAsync(async(req,res)=>{
     let {id} = req.params;
-    if(!req.body.listing){
-        throw new ExpressError(400,"send valid data for listing.")
-    }
+    let errmsg = error.details.map((el)=>el.message).join(',');
     await Listing.findByIdAndUpdate(id, {...req.body.listing});
     res.redirect(`/listings/${id}`);
    
@@ -121,7 +131,8 @@ app.all("*path",(req,res,next)=>{
 
 app.use((err,req,res,next)=>{
     let{statusCode=500,message="something went wrong!"}=err;
-    res.status(statusCode).send(message);
+    // res.status(statusCode).send(message);
+    res.status(statusCode).render("error.ejs",{message})
 })
 
 
