@@ -13,8 +13,15 @@ app.set("view engine","ejs");
 app.set("views" , path.join(__dirname,"views"));
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname,"/public")));
-const listings = require("./routes/listings.js")
-const reviews = require("./routes/review.js")
+
+const listingsRouter = require("./routes/listings.js")
+const reviewsRouter = require("./routes/review.js")
+const userRouter = require("./routes/user.js");
+
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
+const User = require("./models/user.js");
+
 
 const mongo_url ="mongodb://127.0.0.1:27017/wanderlust";
 
@@ -49,16 +56,27 @@ app.get("/" , (req,res)=>{
 app.use(session(sessionOptions));
 app.use(flash());
 
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 app.use((req,res,next)=>{
     res.locals.success=req.flash("success");
+    res.locals.error=req.flash("error");
     console.log(res.locals.success)
     next();
 })
 
-app.use("/listings",listings);
-// reviews rout middleware
 
-app.use("/listings/:id/reviews",reviews);
+app.use("/listings",listingsRouter);
+
+app.use("/listings/:id/reviews",reviewsRouter);
+
+app.use("/",userRouter);
+
 
 app.all("*path",(req,res,next)=>{
     next(new ExpressError (404,"Page not found"));
