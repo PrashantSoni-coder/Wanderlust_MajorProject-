@@ -3,7 +3,7 @@
     <div class="col-8  offset-2">
     <h2>Edit Listing</h2>
     
-    <form method="POSt" class="needs-validation" novalidate action="/listings/<%= listing._id %>?_method=PUT">
+    <form method="POSt" class="needs-validation" enctype="multipart/form-data" action="/listings/<%= listing._id %>?_method=PUT">
         <div class="mb-3">
             <lable for="title" class="form-lable">Title</lable>
             <input name="listing[title]" value="<%= listing.title%>" type="text" class="form-control" required>
