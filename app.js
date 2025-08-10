@@ -51,11 +51,6 @@ const sessionOptions = {
         httpOnly:true
     }
 };
-app.get("/" , (req,res)=>{
-    res.send("root is on");
-})
-
-
 app.use(session(sessionOptions));
 app.use(flash());
 
