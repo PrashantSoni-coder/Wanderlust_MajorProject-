@@ -30,6 +30,8 @@ const User = require("./models/user.js");
 const dbUrl = process.env.ATLASDB_URL;
 
 const session = require("express-session");
+const MongoStore = require('connect-mongo');
+
 const flash = require("connect-flash");
 
 main().then(()=>{
@@ -41,9 +43,20 @@ main().then(()=>{
 async function main(){
     await mongoose.connect(dbUrl)
 }
+const store = MongoStore.create({
+    mongoUrl:dbUrl,
+    crypto: {
+        secret : process.env.SECRET,
+    },
+    touchAfter:24*3600,
+})
+store.on("error",()=>{
+    console.log("ERROR IN MONGO SESSIONS STORE");
+})
 
 const sessionOptions = {
-    secret: "mySuperSecretPassword",
+    store,
+    secret: process.env.SECRET,
     resave:false,
     saveUninitialized:true,
     cookie: {
@@ -52,6 +65,8 @@ const sessionOptions = {
         httpOnly:true
     }
 };
+
+
 app.use(session(sessionOptions));
 app.use(flash());
 
