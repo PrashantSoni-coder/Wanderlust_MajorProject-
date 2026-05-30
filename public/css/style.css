@@ -4,6 +4,12 @@ body{
     flex-direction: column;
     min-height: 100vh;
 }
+
+html,
+body {
+    overflow-x: hidden;
+}
+
 .container{
     flex:1;
 }
@@ -99,6 +105,7 @@ body{
 /* MAP */
 #map { 
     height:400px;
-    width: 80vh; 
+    width: 100%; 
 
 }
+
