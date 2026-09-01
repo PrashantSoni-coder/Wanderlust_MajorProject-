@@ -14,20 +14,15 @@ module.exports.index = async (req,res)=>{
     let limit = 6;
     let skip = (page-1)*limit;
 
-    let allListings;
-    let totalListings;
 
+    const filter = location ? { location } : {};
+
+    const totalListings = await Listing.countDocuments(filter);
+
+    const allListings = await Listing.find(filter)
+        .skip(skip)
+        .limit(limit);
     
-    if(location){
-        
-        allListings = await Listing.find({location : location}).limit(limit).skip(skip);
-        totalListings = await Listing.countDocuments({location:location});
-    }else{
-        allListings = await Listing.find().limit(limit).skip(skip)
-        totalListings = await Listing.countDocuments();
-        
-    }
-    //console.log(totalListings);
     const totalPages = Math.ceil(totalListings/limit);
     if (page > totalPages && totalPages > 0) {
         const query = new URLSearchParams(req.query);
@@ -35,7 +30,6 @@ module.exports.index = async (req,res)=>{
 
         return res.redirect(`/listings?${query.toString()}`);
     }
-    //console.log(totalPages);
     res.render("listings/index.ejs",{allListings,
         currentPage: page,
         totalPages,
