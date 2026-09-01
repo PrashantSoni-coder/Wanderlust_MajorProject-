@@ -39,8 +39,13 @@ const listingSchema = new Schema({
     coordinates: {
       type: [Number],
       required: true
+    },
+    
+  },
+  tag : {
+        type : String,
+        required:true,
     }
-  }
 });
 
 

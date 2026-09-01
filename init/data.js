@@ -10,7 +10,14 @@ const sampleListings = [
     price: 1500,
     location: "Malibu",
     country: "United States",
+    tag: "Beachfront",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [-118.7798, 34.0259],
+    },
   },
+
   {
     title: "Modern Loft in Downtown",
     description:
@@ -22,7 +29,14 @@ const sampleListings = [
     price: 1200,
     location: "New York City",
     country: "United States",
+    tag: "City Stay",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [-74.006, 40.7128],
+    },
   },
+
   {
     title: "Mountain Retreat",
     description:
@@ -34,7 +48,14 @@ const sampleListings = [
     price: 1000,
     location: "Aspen",
     country: "United States",
+    tag: "Mountain",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [-106.8175, 39.1911],
+    },
   },
+
   {
     title: "Historic Villa in Tuscany",
     description:
@@ -46,7 +67,14 @@ const sampleListings = [
     price: 2500,
     location: "Florence",
     country: "Italy",
+    tag: "Historic",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [11.2558, 43.7696],
+    },
   },
+
   {
     title: "Secluded Treehouse Getaway",
     description:
@@ -58,7 +86,14 @@ const sampleListings = [
     price: 800,
     location: "Portland",
     country: "United States",
+    tag: "Nature",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [-122.6784, 45.5152],
+    },
   },
+
   {
     title: "Beachfront Paradise",
     description:
@@ -70,7 +105,14 @@ const sampleListings = [
     price: 2000,
     location: "Cancun",
     country: "Mexico",
+    tag: "Beach",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [-86.8515, 21.1619],
+    },
   },
+
   {
     title: "Rustic Cabin by the Lake",
     description:
@@ -82,7 +124,14 @@ const sampleListings = [
     price: 900,
     location: "Lake Tahoe",
     country: "United States",
+    tag: "Lake",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [-120.0324, 39.0968],
+    },
   },
+
   {
     title: "Luxury Penthouse with City Views",
     description:
@@ -94,7 +143,14 @@ const sampleListings = [
     price: 3500,
     location: "Los Angeles",
     country: "United States",
+    tag: "Luxury",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [-118.2437, 34.0522],
+    },
   },
+
   {
     title: "Ski-In/Ski-Out Chalet",
     description:
@@ -106,7 +162,14 @@ const sampleListings = [
     price: 3000,
     location: "Verbier",
     country: "Switzerland",
+    tag: "Ski",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [7.2287, 46.096],
+    },
   },
+
   {
     title: "Safari Lodge in the Serengeti",
     description:
@@ -118,7 +181,14 @@ const sampleListings = [
     price: 4000,
     location: "Serengeti National Park",
     country: "Tanzania",
+    tag: "Safari",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [34.8333, -2.3333],
+    },
   },
+
   {
     title: "Historic Canal House",
     description:
@@ -130,7 +200,14 @@ const sampleListings = [
     price: 1800,
     location: "Amsterdam",
     country: "Netherlands",
+    tag: "Heritage",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [4.9041, 52.3676],
+    },
   },
+
   {
     title: "Private Island Retreat",
     description:
@@ -142,7 +219,14 @@ const sampleListings = [
     price: 10000,
     location: "Fiji",
     country: "Fiji",
+    tag: "Island",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [178.065, -17.7134],
+    },
   },
+
   {
     title: "Charming Cottage in the Cotswolds",
     description:
@@ -154,7 +238,14 @@ const sampleListings = [
     price: 1200,
     location: "Cotswolds",
     country: "United Kingdom",
+    tag: "Countryside",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [-1.8433, 51.833],
+    },
   },
+
   {
     title: "Historic Brownstone in Boston",
     description:
@@ -166,7 +257,14 @@ const sampleListings = [
     price: 2200,
     location: "Boston",
     country: "United States",
+    tag: "Classic",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [-71.0589, 42.3601],
+    },
   },
+
   {
     title: "Beachfront Bungalow in Bali",
     description:
@@ -178,7 +276,14 @@ const sampleListings = [
     price: 1800,
     location: "Bali",
     country: "Indonesia",
+    tag: "Tropical",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [115.1889, -8.4095],
+    },
   },
+
   {
     title: "Mountain View Cabin in Banff",
     description:
@@ -190,7 +295,14 @@ const sampleListings = [
     price: 1500,
     location: "Banff",
     country: "Canada",
+    tag: "Adventure",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [-115.5708, 51.1784],
+    },
   },
+
   {
     title: "Art Deco Apartment in Miami",
     description:
@@ -202,7 +314,14 @@ const sampleListings = [
     price: 1600,
     location: "Miami",
     country: "United States",
+    tag: "Art & Culture",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [-80.1918, 25.7617],
+    },
   },
+
   {
     title: "Tropical Villa in Phuket",
     description:
@@ -214,7 +333,14 @@ const sampleListings = [
     price: 3000,
     location: "Phuket",
     country: "Thailand",
+    tag: "Relaxation",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [98.3381, 7.8804],
+    },
   },
+
   {
     title: "Historic Castle in Scotland",
     description:
@@ -226,7 +352,14 @@ const sampleListings = [
     price: 4000,
     location: "Scottish Highlands",
     country: "United Kingdom",
+    tag: "Castle",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [-4.2026, 57.12],
+    },
   },
+
   {
     title: "Desert Oasis in Dubai",
     description:
@@ -238,7 +371,14 @@ const sampleListings = [
     price: 5000,
     location: "Dubai",
     country: "United Arab Emirates",
+    tag: "Desert",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [55.2708, 25.2048],
+    },
   },
+
   {
     title: "Rustic Log Cabin in Montana",
     description:
@@ -250,7 +390,14 @@ const sampleListings = [
     price: 1100,
     location: "Montana",
     country: "United States",
+    tag: "Rustic",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [-110.3626, 46.8797],
+    },
   },
+
   {
     title: "Beachfront Villa in Greece",
     description:
@@ -262,7 +409,14 @@ const sampleListings = [
     price: 2500,
     location: "Mykonos",
     country: "Greece",
+    tag: "Mediterranean",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [25.3289, 37.4467],
+    },
   },
+
   {
     title: "Eco-Friendly Treehouse Retreat",
     description:
@@ -274,7 +428,14 @@ const sampleListings = [
     price: 750,
     location: "Costa Rica",
     country: "Costa Rica",
+    tag: "Eco-Friendly",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [-84.0907, 9.7489],
+    },
   },
+
   {
     title: "Historic Cottage in Charleston",
     description:
@@ -286,19 +447,33 @@ const sampleListings = [
     price: 1600,
     location: "Charleston",
     country: "United States",
+    tag: "Historic",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [-79.9311, 32.7765],
+    },
   },
+
   {
     title: "Modern Apartment in Tokyo",
     description:
       "Explore the vibrant city of Tokyo from this modern and centrally located apartment.",
     image: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1480796927426-f609979314bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      url: "https://images.unsplash.com/photo-1480796927426-f609979314bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fDA%3D&auto=format&fit=crop&w=800&q=60",
     },
     price: 2000,
     location: "Tokyo",
     country: "Japan",
+    tag: "Urban",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [139.6917, 35.6895],
+    },
   },
+
   {
     title: "Lakefront Cabin in New Hampshire",
     description:
@@ -310,7 +485,14 @@ const sampleListings = [
     price: 1200,
     location: "New Hampshire",
     country: "United States",
+    tag: "Lakeside",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [-71.5724, 43.1939],
+    },
   },
+
   {
     title: "Luxury Villa in the Maldives",
     description:
@@ -322,7 +504,14 @@ const sampleListings = [
     price: 6000,
     location: "Maldives",
     country: "Maldives",
+    tag: "Luxury",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [73.2207, 3.2028],
+    },
   },
+
   {
     title: "Ski Chalet in Aspen",
     description:
@@ -334,7 +523,14 @@ const sampleListings = [
     price: 4000,
     location: "Aspen",
     country: "United States",
+    tag: "Winter",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [-106.8175, 39.1911],
+    },
   },
+
   {
     title: "Secluded Beach House in Costa Rica",
     description:
@@ -346,6 +542,12 @@ const sampleListings = [
     price: 1800,
     location: "Costa Rica",
     country: "Costa Rica",
+    tag: "Surfing",
+    owner: "6a970513d3226e512d1ee54a",
+    geometry: {
+      type: "Point",
+      coordinates: [-84.0907, 9.7489],
+    },
   },
 ];
 
