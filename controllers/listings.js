@@ -5,13 +5,40 @@ const mapToken = process.env.MAP_TOKEN;
 const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 
 module.exports.index = async (req,res)=>{
-    let allListings = await Listing.find()
-    res.render("listings/index.ejs",{allListings});
+    let {location } = req.query;
+
+    const page = parseInt(req.query.page) || 1;
+    if (page < 1) {
+        page = 1;
+    }
+    let limit = 6;
+    let skip = (page-1)*limit;
+
+
+    const filter = location ? { location } : {};
+
+    const totalListings = await Listing.countDocuments(filter);
+
+    const allListings = await Listing.find(filter)
+        .skip(skip)
+        .limit(limit);
+    
+    const totalPages = Math.ceil(totalListings/limit);
+    if (page > totalPages && totalPages > 0) {
+        const query = new URLSearchParams(req.query);
+        query.set("page", totalPages);
+
+        return res.redirect(`/listings?${query.toString()}`);
+    }
+    res.render("listings/index.ejs",{allListings,
+        currentPage: page,
+        totalPages,
+        location});
 }
 
 module.exports.renderNewForm = (req,res)=>{
     res.render("listings/new.ejs");
-}
+} 
 module.exports.showListing = async (req,res)=>{
     let {id} = req.params;
     let listing = await Listing.findById(id).populate({path : "reviews",populate : {path : "author",},}).populate("owner");
@@ -58,8 +85,10 @@ module.exports.renderEditForm = async (req,res)=>{
     res.render("listings/edit.ejs",{listing,originalImageUrl});
 }
 module.exports.updateListing = async(req,res)=>{
+    console.log("inside update Listing")
     let {id} = req.params;
     let listing = await Listing.findByIdAndUpdate(id, {...req.body.listing});
+    console.log({...req.body.listing})
     if(req.file){
         let url = req.file.path;
         let filename =req.file.filename;
