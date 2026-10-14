@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+<title id="title">Wanderlust System Architecture</title>
+<desc id="desc">Architecture of the Wanderlust travel and accommodation listing application using EJS, Bootstrap, Node.js, Express, MongoDB, Cloudinary and Mapbox.</desc>
+<defs>
+  <style>
+    .bg{fill:#f7f9fc}.title{font:700 34px Arial,sans-serif;fill:#172b4d}.subtitle{font:16px Arial,sans-serif;fill:#526581}
+    .h{font:700 19px Arial,sans-serif;fill:#17324d}.t{font:15px Arial,sans-serif;fill:#25364a}.small{font:13px Arial,sans-serif;fill:#526581}
+    .box{fill:#fff;stroke:#8ba4bd;stroke-width:2}.blue{fill:#eaf3ff;stroke:#3f78b5;stroke-width:2}.green{fill:#e9f8f0;stroke:#32966b;stroke-width:2}.purple{fill:#f2edff;stroke:#8262bd;stroke-width:2}.orange{fill:#fff2df;stroke:#c78731;stroke-width:2}
+    .line{fill:none;stroke:#526b85;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.dash{stroke-dasharray:7 6}
+  </style>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#526b85"/></marker>
+</defs>
+<rect class="bg" width="1400" height="900" rx="18"/>
+<text x="700" y="58" text-anchor="middle" class="title">Wanderlust — System Architecture</text>
+<text x="700" y="88" text-anchor="middle" class="subtitle">Full-stack travel &amp; accommodation listing platform</text>
+
+<rect x="60" y="140" width="300" height="190" rx="16" class="blue"/>
+<text x="210" y="175" text-anchor="middle" class="h">Client / Presentation</text>
+<text x="85" y="211" class="t">• User's web browser</text>
+<text x="85" y="239" class="t">• EJS server-rendered pages</text>
+<text x="85" y="267" class="t">• Bootstrap 5 + custom CSS/JS</text>
+<text x="85" y="295" class="t">• Mapbox GL JS map display</text>
+
+<rect x="440" y="130" width="520" height="440" rx="18" class="box"/>
+<text x="700" y="165" text-anchor="middle" class="h">Application Server — Node.js / Express</text>
+<rect x="475" y="190" width="210" height="72" rx="10" class="blue"/>
+<text x="580" y="218" text-anchor="middle" class="h">Express Routes</text>
+<text x="580" y="241" text-anchor="middle" class="small">Listings · Reviews · Users</text>
+<rect x="715" y="190" width="210" height="72" rx="10" class="purple"/>
+<text x="820" y="218" text-anchor="middle" class="h">Middleware</text>
+<text x="820" y="241" text-anchor="middle" class="small">Auth · Authorization · Joi</text>
+<rect x="475" y="295" width="450" height="92" rx="10" class="green"/>
+<text x="700" y="325" text-anchor="middle" class="h">Controllers / Business Logic</text>
+<text x="700" y="352" text-anchor="middle" class="t">Listing CRUD · Review management · User flows</text>
+<text x="700" y="374" text-anchor="middle" class="small">Async error handling · Flash messages</text>
+<rect x="475" y="420" width="210" height="95" rx="10" class="orange"/>
+<text x="580" y="449" text-anchor="middle" class="h">Upload Pipeline</text>
+<text x="580" y="473" text-anchor="middle" class="small">Multer</text>
+<text x="580" y="494" text-anchor="middle" class="small">Cloudinary integration</text>
+<rect x="715" y="420" width="210" height="95" rx="10" class="purple"/>
+<text x="820" y="449" text-anchor="middle" class="h">Data Models</text>
+<text x="820" y="473" text-anchor="middle" class="small">Mongoose schemas</text>
+<text x="820" y="494" text-anchor="middle" class="small">User · Listing · Review</text>
+
+<rect x="1050" y="150" width="290" height="145" rx="16" class="green"/>
+<text x="1195" y="185" text-anchor="middle" class="h">MongoDB / Atlas</text>
+<text x="1075" y="220" class="t">• Users</text>
+<text x="1075" y="246" class="t">• Listings</text>
+<text x="1075" y="272" class="t">• Reviews &amp; sessions</text>
+
+<rect x="1050" y="365" width="290" height="105" rx="16" class="orange"/>
+<text x="1195" y="400" text-anchor="middle" class="h">Cloudinary</text>
+<text x="1195" y="428" text-anchor="middle" class="t">Uploaded listing images</text>
+<text x="1195" y="450" text-anchor="middle" class="small">Cloud image storage / delivery</text>
+
+<rect x="1050" y="540" width="290" height="105" rx="16" class="purple"/>
+<text x="1195" y="575" text-anchor="middle" class="h">Mapbox API</text>
+<text x="1195" y="603" text-anchor="middle" class="t">Map tiles / geolocation display</text>
+<text x="1195" y="625" text-anchor="middle" class="small">Used by the listing map UI</text>
+
+<rect x="440" y="650" width="520" height="100" rx="16" class="blue"/>
+<text x="700" y="685" text-anchor="middle" class="h">Deployment</text>
+<text x="700" y="713" text-anchor="middle" class="t">Render hosts the Node.js / Express application</text>
+<text x="700" y="735" text-anchor="middle" class="small">Configuration and credentials supplied via environment variables</text>
+
+<path class="line" marker-end="url(#arrow)" d="M360 230 H425"/>
+<text x="392" y="216" text-anchor="middle" class="small">HTTP</text>
+<path class="line" marker-end="url(#arrow)" d="M685 226 H705"/>
+<path class="line" marker-end="url(#arrow)" d="M820 262 V283 H700 V290"/>
+<path class="line" marker-end="url(#arrow)" d="M700 387 V407 H580 V415"/>
+<path class="line" marker-end="url(#arrow)" d="M700 387 V407 H820 V415"/>
+<path class="line" marker-end="url(#arrow)" d="M925 467 H985 V250 H1040"/>
+<path class="line" marker-end="url(#arrow)" d="M685 467 H1010 V417 H1040"/>
+<path class="line dash" marker-end="url(#arrow)" d="M360 295 H400 V590 H1025 V592 H1040"/>
+<path class="line dash" marker-end="url(#arrow)" d="M700 570 V640"/>
+<text x="700" y="790" text-anchor="middle" class="subtitle">Typical request: Browser → Express route &amp; middleware → controller → database / external service → rendered response</text>
+<text x="700" y="825" text-anchor="middle" class="small">Prepared from the project's documented stack and structure. Confirm deployment configuration and features against the current code.</text>
+</svg>
